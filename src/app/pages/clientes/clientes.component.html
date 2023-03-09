@@ -1,0 +1,62 @@
+<div class="container">
+    <h1>Papeleria</h1>
+
+    <h4>Alta de articulos</h4>
+    <div class="col-sm-4">
+        <p>
+            <label>Nombre de articulo:</label>
+            <input type="text" class="form-control" [(ngModel)]="cliente.nombre" />
+        </p>
+        <p>
+            <label>Color:</label>
+            <input type="text" class="form-control" [(ngModel)]="cliente.rfc" />
+        </p>
+        <p>
+            <label>Cantidad:</label>
+            <input type="text" class="form-control" [(ngModel)]="cliente.domicilio" />
+        </p>
+        <p>
+            <label>Departamento:</label>
+            <input type="text" class="form-control" [(ngModel)]="cliente.tipo" />
+        </p>
+        <table>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-primary" 
+                        (click)="insertarCliente()">Insertar</button>
+                </td>
+                
+                <td>
+                    <button type="button" class="btn btn-warning" 
+                        (click)="this.updateCliente()">Actualizar</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" 
+                        (click)="this.deleteCliente(cliente.id)">Eliminar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <table class="table">
+        <thead>
+            <th>Nombre</th>
+            <th>Color</th>
+            <th>Cantidad</th>
+            <th>Departamento</th>
+            <th>Seleccionar</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes">
+                <td>{{cliente.nombre}}</td>
+                <td>{{cliente.rfc}}</td>
+                <td>{{cliente.domicilio}}</td>
+                <td>{{cliente.tipo}}</td> 
+                <td>
+                    <button type="button" class="btn btn-primary" 
+                        (click)="selectCliente(cliente)">Seleccionar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
